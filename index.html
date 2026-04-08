@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bhargava's Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Bhargava's Gallery</h1>
+<p>Stationery & Gifts</p>
+</header>
+
+<section class="products">
+
+<div class="card">
+<img src="images/demo1.png" alt="Pencil Box">
+<h3>Pencil Box</h3>
+<button onclick="buyProduct('Pencil Box','images/demo1.png')">
+Buy on WhatsApp
+</button>
+</div>
+
+<div class="card">
+<img src="images/demo2.png" alt="Comic Book">
+<h3>books</h3>
+<button onclick="buyProduct('Comic Book','images/demo2.png')">
+Buy on WhatsApp
+</button>
+</div>
+
+<div class="card">
+<img src="images/demo3.png" alt="Gift 1">
+<h3>comic book set</h3>
+<button onclick="buyProduct('Gift 1','images/demo3.png')">
+Buy on WhatsApp
+</button>
+</div>
+
+<div class="card">
+<img src="images/demo4.png" alt="Gift 2">
+<h3>stationary</h3>
+<button onclick="buyProduct('Gift 2','images/demo4.png')">
+Buy on WhatsApp
+</button>
+</div>
+
+</section>
+
+<script>
+
+function buyProduct(productName, imagePath){
+
+let phone = "917037153711";
+
+/* get repo base path automatically */
+
+let basePath = window.location.origin + window.location.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "");
+
+let imageURL = basePath + "/" + imagePath;
+
+let message =
+`Hello, I want to buy:
+
+Product: ${productName}
+Image: ${imageURL}`;
+
+let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
